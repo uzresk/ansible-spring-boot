@@ -1,0 +1,5 @@
+- hosts: server
+  sudo: yes
+  tasks:
+    - name: stop iptables
+      service: name=iptables state=stopped
