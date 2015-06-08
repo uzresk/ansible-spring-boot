@@ -1,6 +1,8 @@
-- hosts: webserver
-  user: root
-  
+---
+- hosts: spring-boot
+  become: yes 
   roles:
     - selinux
+    - iptables
     - httpd
+    - jdk
