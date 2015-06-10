@@ -12,3 +12,4 @@ LOG_OUTPUT_DIR: /var/log/cmp
 LOG_CONFIG_FILE: ${BASE_DIR}/logback-web.xml
 PID: ${BASE_DIR}/cmp-web.pid
 PROFILE: localhost
+CONTEXT_ROOT: app
