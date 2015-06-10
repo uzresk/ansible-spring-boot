@@ -1,0 +1,4 @@
+---
+# stop iptables
+- name: stop iptables
+  service: name=iptables state=stopped

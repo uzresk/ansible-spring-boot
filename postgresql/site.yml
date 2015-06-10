@@ -1,0 +1,7 @@
+---
+- hosts: dbserver
+  become: yes 
+  roles:
+    - selinux
+    - iptables
+    - postgresql
