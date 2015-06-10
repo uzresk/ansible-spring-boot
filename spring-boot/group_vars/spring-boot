@@ -1,1 +1,14 @@
+GROUP: cmp
+GID: 501
+USER: cmp
+UID: 501
+# before exec -> python -c 'import crypt; print crypt.crypt("cmp", "$1$TestSalt$")'
+PASSWORD: $1$TestSalt$JMUo3X/BNB5DmwVZYj0R20
 JDK_DL_URL: http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-i586.rpm
+APP_NAME: cmp
+BASE_DIR: /home/cmp/cmp
+JAR_FILE: /home/cmp/cmp-web-0.0.1-SNAPSHOT.jar
+LOG_OUTPUT_DIR: /var/log/cmp
+LOG_CONFIG_FILE: /home/cmp/logback-web.xml
+PID: /home/cmp/cmp-web.pid
+PROFILE: production

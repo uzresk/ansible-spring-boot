@@ -1,0 +1,10 @@
+---
+- name: create spring-boot root directory
+  file: path={{BASE_DIR}} state=directory owner={{USER}} group={{USER}} mode=0755
+- name: copy logback.xml
+  template: src=logback.xml dest={{BASE_DIR}}/logback.xml owner={{USER}} group={{USER}}
+- name: copy spring-boot start shell
+  template: src=service.sh dest={{BASE_DIR}}/service.sh owner={{USER}} group={{USER}}
+- name: create log output directory 
+  file: path={{LOG_OUTPUT_DIR}} state=directory owner={{USER}} group={{USER}} mode=0755
+
