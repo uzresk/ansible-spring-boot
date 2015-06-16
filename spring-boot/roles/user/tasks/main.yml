@@ -1,5 +1,0 @@
-# group add
-- group: name={{GROUP}} gid={{GID}}
-# user add
-- user: name={{USER}} comment="{{USER}}" uid={{UID}} group={{GROUP}} password={{PASSWORD}}
-
