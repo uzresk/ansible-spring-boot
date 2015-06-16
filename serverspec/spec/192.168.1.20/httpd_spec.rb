@@ -20,6 +20,9 @@ end
 describe file('/etc/httpd/conf/httpd.conf') do
   it { should contain('/var/log/cmp/error_log').after(/^ErrorLog/) }
   it { should contain('/var/log/cmp/access_log').after(/^CustomLog/) }
+end
+
+describe file('/etc/httpd/conf.d/httpd-proxy.conf') do
   it { should contain('/app http://localhost:8080/app').after(/^ProxyPass/) }
   it { should contain('/app http://localhost:8080/app').after(/^ProxyPassReverse/) }
 end

@@ -9,6 +9,10 @@
   template: src=httpd.conf dest=/etc/httpd/conf/
   notify: restart httpd
 
+- name: copy httpd-proxy.conf
+  template: src=httpd-proxy.conf dest=/etc/httpd/conf.d/
+  notify: restart httpd
+
 - name: service
   service: name=httpd state=running enabled=yes
 
