@@ -1,0 +1,6 @@
+---
+httpd:
+  user: cmp
+  group: cmp
+  log_output_dir: /var/log/cmp
+  context_root: app

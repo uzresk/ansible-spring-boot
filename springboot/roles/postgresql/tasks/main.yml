@@ -39,7 +39,7 @@
 
 - name : create database
   postgresql_db: 
-    name: "{{POSTGRESQL_DB_NAME}}"
+    name: "{{postgresql.db_name}}"
     encoding: "UTF-8"
     login_user: postgres
   sudo_user: postgres
@@ -47,9 +47,9 @@
 
 - name: create user
   postgresql_user: 
-    db: "{{POSTGRESQL_DB_NAME}}"
-    name: "{{POSTGRESQL_DB_USER}}"
-    password: "{{POSTGRESQL_DB_PASS}}"
+    db: "{{postgresql.db_name}}"
+    name: "{{postgresql.db_user}}"
+    password: "{{postgresql.db_pass}}"
     priv: ALL
     state: present
     login_user: postgres

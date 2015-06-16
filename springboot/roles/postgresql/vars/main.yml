@@ -1,0 +1,5 @@
+---
+postgresql:
+  db_name: cmp
+  db_user: cmp
+  db_pass: cmp12345

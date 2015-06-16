@@ -1,0 +1,14 @@
+---
+springboot:
+  group: cmp
+  gid: 501
+  user: cmp
+  uid: 501
+  password: $1$TestSalt$JMUo3X/BNB5DmwVZYj0R20  # before exec -> python -c 'import crypt; print crypt.crypt("cmp", "$1$TestSalt$")'
+  pid: ${BASE_DIR}/cmp-web.pid
+  profile: localhost
+  app_name: cmp
+  base_dir: /home/cmp/app
+  jar_file: ${BASE_DIR}/cmp-web-0.0.1-SNAPSHOT.jar
+  log_output_dir: /var/log/cmp
+  log_config_file: ${BASE_DIR}/logback-web.xml
