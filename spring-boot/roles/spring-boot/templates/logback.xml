@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE logback>
 <configuration>
-	<property name="LOG_FILE" value="${log.path:-{{LOG_OUTPUT_DIR}}}/{{APP_NAME}}.log}"/>
+	<property name="LOG_FILE" value="${log.path:-{{SPRING_BOOT_LOG_OUTPUT_DIR}}}/{{SPRING_BOOT_APP_NAME}}.log}"/>
 	<include resource="org/springframework/boot/logging/logback/base.xml"/>	
 	<logger name="com.amazonaws" level="INFO"/>
 	<logger name="org.hibernate" level="ERROR"/>
@@ -11,17 +11,17 @@
 
 	<appender name="event" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<Append>true</Append>
-		<File>${log.path:-{{LOG_OUTPUT_DIR}}}/reserve.log</File>
+		<File>${log.path:-{{SPRING_BOOT_LOG_OUTPUT_DIR}}}/reserve.log</File>
 		<encoder>
 			<pattern>${FILE_LOG_PATTERN}</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${log.path:-{{LOG_OUTPUT_DIR}}}/reserve.log.%d{yyyy-MM-dd}
+			<fileNamePattern>${log.path:-{{SPRING_BOOT_LOG_OUTPUT_DIR}}}/reserve.log.%d{yyyy-MM-dd}
 			</fileNamePattern>
 			<maxHistory>15</maxHistory>
 		</rollingPolicy>
 	</appender>
-	<logger name="org.{{APP_NAME}}.web.event" level="INFO">
+	<logger name="org.{{SPRING_BOOT_APP_NAME}}.web.event" level="INFO">
 		<appender-ref ref="event" />
 	</logger>
 </configuration>

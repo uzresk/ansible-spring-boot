@@ -1,10 +1,16 @@
 ---
+# group add
+- group: name={{SPRING_BOOT_GROUP}} gid={{SPRING_BOOT_GID}}
+
+# user add
+- user: name={{SPRING_BOOT_USER}} comment="{{SPRING_BOOT_USER}}" uid={{SPRING_BOOT_UID}} group={{SPRING_BOOT_GROUP}} password={{SPRING_BOOT_PASSWORD}}
+
 - name: create spring-boot root directory
-  file: path={{BASE_DIR}} state=directory owner={{USER}} group={{USER}} mode=0755
+  file: path={{SPRING_BOOT_BASE_DIR}} state=directory owner={{SPRING_BOOT_USER}} group={{SPRING_BOOT_USER}} mode=0755
+
 - name: copy logback.xml
-  template: src=logback.xml dest={{BASE_DIR}}/logback.xml owner={{USER}} group={{USER}}
+  template: src=logback.xml dest={{SPRING_BOOT_BASE_DIR}}/logback.xml owner={{SPRING_BOOT_USER}} group={{SPRING_BOOT_USER}}
+
 - name: copy spring-boot start shell
-  template: src=service.sh dest={{BASE_DIR}}/service.sh owner={{USER}} group={{USER}} mode=0755
-- name: create log output directory 
-  file: path={{LOG_OUTPUT_DIR}} state=directory owner={{USER}} group={{USER}} mode=0755
+  template: src=service.sh dest={{SPRING_BOOT_BASE_DIR}}/service.sh owner={{SPRING_BOOT_USER}} group={{SPRING_BOOT_USER}} mode=0755
 

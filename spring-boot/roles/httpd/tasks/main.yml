@@ -1,10 +1,14 @@
 ---
+- name: create log output directory
+  file: path={{HTTPD_LOG_OUTPUT_DIR}} state=directory owner={{HTTPD_USER}} group={{HTTPD_USER}} mode=0755
+
 - name: install httpd
   yum: name=httpd state=installed
+
 - name: copy default httpd.conf
-  #copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
   template: src=httpd.conf dest=/etc/httpd/conf/
   notify: restart httpd
+
 - name: service
   service: name=httpd state=running enabled=yes
 

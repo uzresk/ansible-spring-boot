@@ -11,6 +11,10 @@
   shell: service postgresql initdb
          creates=/var/lib/pgsql/data/postgresql.conf
 
+- name: start postgresql
+  service: name=postgresql state=started
+  sudo: yes
+
 - name: postgresql.conf copy
   template: src=postgresql.conf dest=/var/lib/pgsql/data/postgresql.conf
   notify: reload postgresql
@@ -32,7 +36,7 @@
 
 - name : create database
   postgresql_db: 
-    name: "{{DB_NAME}}"
+    name: "{{POSTGRESQL_DB_NAME}}"
     encoding: "UTF-8"
     login_user: postgres
   sudo_user: postgres
@@ -40,9 +44,9 @@
 
 - name: create user
   postgresql_user: 
-    db: "{{DB_NAME}}"
-    name: "{{DB_USER}}"
-    password: "{{DB_PASS}}"
+    db: "{{POSTGRESQL_DB_NAME}}"
+    name: "{{POSTGRESQL_DB_USER}}"
+    password: "{{POSTGRESQL_DB_PASS}}"
     priv: ALL
     state: present
     login_user: postgres

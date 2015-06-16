@@ -2,9 +2,9 @@
 - hosts: spring-boot
   become: yes 
   roles:
-    - user
     - selinux
     - iptables
+    - spring-boot
     - httpd
     - jdk
-    - spring-boot
+    - postgresql
