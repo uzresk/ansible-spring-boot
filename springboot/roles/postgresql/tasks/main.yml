@@ -1,6 +1,6 @@
 ---
 - name: install postgresql
-  yum: name={{item}} state=latest
+  yum: name={{ item }} state=latest
   with_items:
     - postgresql-server
     - postgresql-devel
@@ -39,7 +39,7 @@
 
 - name : create database
   postgresql_db: 
-    name: "{{postgresql.db_name}}"
+    name: "{{ postgresql.db_name }}"
     encoding: "UTF-8"
     login_user: postgres
   sudo_user: postgres
@@ -47,9 +47,9 @@
 
 - name: create user
   postgresql_user: 
-    db: "{{postgresql.db_name}}"
-    name: "{{postgresql.db_user}}"
-    password: "{{postgresql.db_pass}}"
+    db: "{{ postgresql.db_name }}"
+    name: "{{ postgresql.db_user }}"
+    password: "{{ postgresql.db_pass }}"
     priv: ALL
     state: present
     login_user: postgres

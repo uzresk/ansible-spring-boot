@@ -1,6 +1,6 @@
 ---
 - name: create log output directory
-  file: path={{httpd.log_output_dir}} state=directory owner={{httpd.user}} group={{httpd.group}} mode=0755
+  file: path={{ httpd.log_output_dir }} state=directory owner={{ httpd.user }} group={{ httpd.group }} mode=0755
 
 - name: install httpd
   yum: name=httpd state=installed

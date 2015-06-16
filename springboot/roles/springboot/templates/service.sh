@@ -1,12 +1,12 @@
 #!/bin/sh
 
 JAVA_HOME=/usr/java/default
-APP_NAME={{springboot.app_name}}
-BASE_DIR={{springboot.base_dir}}
-JAR_FILE={{springboot.jar_file}}
-LOG_CONFIG_FILE={{springboot.log_config_file}}
-PID={{springboot.pid}}
-PROFILE={{springboot.profile}}
+APP_NAME={{ springboot.app_name }}
+BASE_DIR={{ springboot.base_dir }}
+JAR_FILE={{ springboot.jar_file }}
+LOG_CONFIG_FILE={{ springboot.log_config_file }}
+PID={{ springboot.pid }}
+PROFILE={{ springboot.profile }}
 
 case "$1" in
   "start" )
