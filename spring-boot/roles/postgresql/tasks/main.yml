@@ -15,6 +15,9 @@
   service: name=postgresql state=started
   sudo: yes
 
+- name: service
+  service: name=postgresql state=running enabled=yes
+
 - name: postgresql.conf copy
   template: src=postgresql.conf dest=/var/lib/pgsql/data/postgresql.conf
   notify: reload postgresql
