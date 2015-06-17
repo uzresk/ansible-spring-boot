@@ -22,5 +22,7 @@ ansibleでspring-bootのセットアップを行うplaybookとserverspecのテ�
 ` rake spec`
 5. spring-boot用のjarを/home/cmp/app配下に配置し、/home/cmp/app/service.sh startでspring-bootアプリケーションが起動します。
 
+## ansible 特定のroleだけ動かす方法
 
-
+* roleごとにhttpd,jdk,postgresql,springbootのタグがつけてあります。実行するときには下記のように行います。  
+`ansible-playbook -t [httpd|jdk|postgresql|springboot] -i hosts site.yml`
