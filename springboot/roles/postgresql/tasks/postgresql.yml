@@ -20,11 +20,11 @@
 
 - name: postgresql.conf copy
   template: src=postgresql.conf dest=/var/lib/pgsql/data/postgresql.conf
-  notify: reload postgresql
+  notify: restart postgresql
 
 - name: pg_hba.conf copy
   template: src=pg_hba.conf dest=/var/lib/pgsql/data/pg_hba.conf
-  notify: reload postgresql
+  notify: restart postgresql
 
 - name: postgres user sudores
   lineinfile: 
