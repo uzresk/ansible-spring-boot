@@ -1,16 +1,16 @@
 ---
 - name: check java rpm
-  stat: path=jdk.rpm
+  stat: path={{ jdk.rpm_path }}
   register: java_exists
 
 - debug: var=java_exists.stat.md5
 
 - name: wget java
   command: >
-    wget -O jdk.rpm --no-check-certificate --no-cookies
+    wget -O {{ jdk.rpm_path }} --no-check-certificate --no-cookies
     --header "Cookie: oraclelicense=accept-securebackup-cookie" "{{ jdk.dl_url }}"
   when: java_exists.stat.md5 is not defined
 
-- name: install java
-  yum: name=jdk.rpm
+- name: install java from local rpm
+  yum: name={{ jdk.rpm_path }}
 
